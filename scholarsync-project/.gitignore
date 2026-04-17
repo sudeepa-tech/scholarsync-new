@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+.pytest_cache/
+
+# Virtual environments
+venv/
+backend/venv/
+backend/core/venv/
+
+# Django static/media artifacts
+backend/core/staticfiles/
+
+# Node
+frontend/node_modules/
+frontend/build/
+
+# OS/editor
+.DS_Store
+Thumbs.db

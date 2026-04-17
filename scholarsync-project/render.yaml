@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: scholarsync-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && cd core && python manage.py migrate && python manage.py collectstatic --no-input
+    startCommand: cd core && gunicorn core.wsgi:application --access-logfile - --error-logfile -
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: CORS_ALLOW_ALL_ORIGINS
+        value: "False"
